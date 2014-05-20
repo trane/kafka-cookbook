@@ -84,6 +84,12 @@ def zookeeper_connect_string
   end
 end
 
+def kafka_log_dirs_string
+  if node[:kafka][:log][:dirs] && node[:kafka][:log][:dirs].any?
+    node[:kafka][:log][:dirs].join(',')
+  end
+end
+
 def zookeeper_init_opts
   @zookeeper_init_opts ||= kafka_create_init_opts('zookeeper')
 end
