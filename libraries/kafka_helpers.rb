@@ -85,9 +85,7 @@ def zookeeper_connect_string
 end
 
 def kafka_log_dirs_string
-  if node[:kafka][:log][:dirs] && node[:kafka][:log][:dirs].any?
-    node[:kafka][:log][:dirs].join(',')
-  end
+  node[:kafka][:log][:dirs].join(',')
 end
 
 def zookeeper_init_opts
