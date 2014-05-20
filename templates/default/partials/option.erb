@@ -3,5 +3,9 @@
 <% elsif @value.respond_to?(:empty?) && @value.empty? %>
 #<%= @key %>=
 <% else %>
+<% if @value.respond_to?(:join) %>
+<%= [@key, @value.join(',')].join('=') %>
+<% else %>
 <%= [@key, @value].join('=') %>
+<% end %>
 <% end %>
