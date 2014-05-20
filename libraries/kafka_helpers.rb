@@ -85,7 +85,9 @@ def zookeeper_connect_string
 end
 
 def kafka_log_dirs_string
-  node[:kafka][:log][:dirs].join(',')
+  string = node[:kafka][:log][:dirs].join(',')
+  puts "KAFKA STRING: #{string}"
+  string
 end
 
 def zookeeper_init_opts
